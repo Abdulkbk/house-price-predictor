@@ -9,99 +9,106 @@
 </head>
 <body>
     <div class="container">
+        <div class="price hidden" id="price">
+            <div class="price-value">
+                Value: <span id="price-val"></span>
+            </div>
+            <span class="close">X</span>
+        </div>
         <section class="section-1">
-            <form onsubmit="handleSubmit">
+            <form id="form">
                 <div>
                     <div>
-                        <input type="number" placeholder="bedrooms">
-                        <input type="number" placeholder="bathrooms">
+                        <input class="input" type="number" placeholder="bedrooms" id="bedrooms">
+                        <input class="input" type="number" placeholder="bathrooms" id="bathrooms">
                     </div>
                 </div>
                 <div>
                     <div>
-                        <input type="number" placeholder="toilets">
-                        <input type="number" placeholder="parking space">
+                        <input class="input" type="number" placeholder="toilets" id="toilets">
+                        <input class="input" type="number" placeholder="parking space" id="space">
                     </div>
                 </div>
                 <div>
                     <div>
-                        <input type="text" placeholder="town">
+                        <input class="input fw" type="text" placeholder="town" id="town">
                     </div>
                     <div>
-                        <select name="title" id="title">
-                            <option value="detached duplex">Detached Duplex</option>
-                            <option value="semi detached duplex">Semi-detached Duplex</option>
-                            <option value="detached bungalow">Detached Bungalow</option>
-                            <option value="semi-detached bungalow">Semi-detached Bungalow</option>
-                            <option value="terraced duplex">Terraced Duplex</option>
-                            <option value="terraced bungalow">Terraced Bungalow</option>
-                            <option value="flat">Block of flat</option>
+                        <select class="input mt fw" name="title" id="title">
+                            <option value="Detached Duplex">Detached Duplex</option>
+                            <option value="Semi Detached Duplex">Semi Detached Duplex</option>
+                            <option value="Detached Bungalow">Detached Bungalow</option>
+                            <option value="Semi Detached Bungalow">Semi Detached Bungalow</option>
+                            <option value="Terraced Duplexes">Terraced Duplexes</option>
+                            <option value="Terraced Bungalow">Terraced Bungalow</option>
+                            <option value="Block of Flats">Block of Flats</option>
                         </select>
                     </div>
                     <div>
-                        <select name="state" id="state">
-                            <option value="abuja">Abuja</option>
-                            <option value="abia">Abia</option>
-                            <option value="adamawa">Adamawa</option>
-                            <option value="akwa-ibom">Akwa Ibom</option>
-                            <option value="anambara">Anambara</option>
-                            <option value="bauchi">Bauchi</option>
-                            <option value="bayelsa">Bayelsa</option>
-                            <option value="benue">Benue</option>
-                            <option value="borno">Borno</option>
-                            <option value="cross-river">Cross River</option>
-                            <option value="delta">Delta</option>
-                            <option value="ebonyi">Ebonyi</option>
-                            <option value="edo">Edo</option>
-                            <option value="ekiti">Ekiti</option>
-                            <option value="enugu">Enugu</option>
-                            <option value="gombe">Gombe</option>
-                            <option value="imo">Imo</option>
-                            <option value="jigawa">Jigawa</option>
-                            <option value="kaduna">Kaduna</option>
-                            <option value="kano">Kano</option>
-                            <option value="katsina">Katsina</option>
-                            <option value="kebbi">Kebbi</option>
-                            <option value="kogi">Kogi</option>
-                            <option value="kwara">Kwara</option>
-                            <option value="lagos">Lagos</option>
-                            <option value="nasarawa">Nasarawa</option>
-                            <option value="niger">Niger</option>
-                            <option value="ogun">Ogun</option>
-                            <option value="osun">Osun</option>
-                            <option value="ondo">Ondo</option>
-                            <option value="oyo">Oyo</option>
-                            <option value="plateau">Plateau</option>
-                            <option value="rivers">Rivers</option>
-                            <option value="sokoto">Sokoto</option>
-                            <option value="taraba">Taraba</option>
-                            <option value="yobe">Yobe</option>
-                            <option value="zamfara">Zamfara</option>
+                        <select class="input mt fw" name="state" id="state">
+                            <option value="Abuja">Abuja</option>
+                            <option value="Abia">Abia</option>
+                            <option value="Adamawa">Adamawa</option>
+                            <option value="Akwa Ibom">Akwa Ibom</option>
+                            <option value="Anambara">Anambara</option>
+                            <option value="Bauchi">Bauchi</option>
+                            <option value="Bayelsa">Bayelsa</option>
+                            <option value="Benue">Benue</option>
+                            <option value="Borno">Borno</option>
+                            <option value="Cross River">Cross River</option>
+                            <option value="Delta">Delta</option>
+                            <option value="Ebonyi">Ebonyi</option>
+                            <option value="Edo">Edo</option>
+                            <option value="Ekiti">Ekiti</option>
+                            <option value="Enugu">Enugu</option>
+                            <option value="Gombe">Gombe</option>
+                            <option value="Imo">Imo</option>
+                            <option value="Jigawa">Jigawa</option>
+                            <option value="Kaduna">Kaduna</option>
+                            <option value="Kano">Kano</option>
+                            <option value="Katsina">Katsina</option>
+                            <option value="Kebbi">Kebbi</option>
+                            <option value="Kogi">Kogi</option>
+                            <option value="Kwara">Kwara</option>
+                            <option value="Lagos">Lagos</option>
+                            <option value="Nasarawa">Nasarawa</option>
+                            <option value="Niger">Niger</option>
+                            <option value="Ogun">Ogun</option>
+                            <option value="Osun">Osun</option>
+                            <option value="Ondo">Ondo</option>
+                            <option value="Oyo">Oyo</option>
+                            <option value="Plateau">Plateau</option>
+                            <option value="Rivers">Rivers</option>
+                            <option value="Sokoto">Sokoto</option>
+                            <option value="Taraba">Taraba</option>
+                            <option value="Yobe">Yobe</option>
+                            <option value="Zamfara">Zamfara</option>
                         </select>
                     </div>
                 </div>
     
                 <div>
-                    <input type="submit">
+                    <input class="input fw submit" type="submit">
                 </div>
             </form>
         </section>
         <section class="section-2">
             <div>
-                <div>Bedrooms <span>5</span></div>
-                <div>Bathrooms <span>4</span></div>
+                <div class="items">Bedrooms: <span class="values" id="d_bedrooms">...</span></div>
+                <div class="items">Bathrooms: <span class="values" id="d_bathrooms">...</span></div>
             </div>
             <div>
-                <div>Parking space <span>3</span></div>
-                <div>Toilets <span></span>3</div>
+                <div class="items">Parking space: <span class="values" id="d_parking">...</span></div>
+                <div class="items">Toilets: <span class="values" id="d_toilets">...</span></div>
             </div>
             <div>
-                <div>Title <span>Duplex</span></div>
-                <div>Town <span>Kawo</span></div>
+                <div class="items">Title: <span class="values" id="d_title">...</span></div>
+                <div class="items">Town: <span class="values" id="d_town">...</span></div>
             </div>
-            <div>State <span>Kaduna</span></div>
+            <div class="items">State: <span class="values" id="d_state">...</span></div>
         </section>
     </div>
     
+    <script src={{ url_for('static', filename='js/main.js') }}></script>
 </body>
 </html>
