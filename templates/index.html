@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href={{ url_for('static', filename='css/tailwind.min.css') }}>
+    <!-- <link rel="stylesheet" href="../static/css/tailwind.min.css"> -->
+    <title>Estimator: Machine Learning Project</title>
+</head>
+<body class="md:p-6 bg-gray-100">
+  <div class="hidden" id="price">
+    <div class="bg-gray-200 relative text-center py-4 lg:px-4">
+      <span class="close absolute top-0 bottom-0 right-0 px-4 py-3 text-indigo-100 text-lg cursor-pointer">X</span>
+      <div class="p-2 bg-indigo-400 items-center text-indigo-100 leading-none lg:rounded-full flex lg:inline-flex flex-wrap" role="alert">
+        <span class="flex rounded-full bg-indigo-500 uppercase px-2 py-1 text-xs font-bold mr-3 my-1">
+          Bedrooms:  <span id="d_bedrooms"></span>
+        </span>
+        <span class="flex rounded-full bg-indigo-500 uppercase px-2 py-1 text-xs font-bold mr-3 my-1">
+          Bathrooms:  <span id="d_bathrooms"></span>
+        </span>
+        <span class="flex rounded-full bg-indigo-500 uppercase px-2 py-1 text-xs font-bold mr-3 my-1">
+          Toilets:  <span id="d_toilets"></span>
+        </span>
+        <span class="flex rounded-full bg-indigo-500 uppercase px-2 py-1 text-xs font-bold mr-3 my-1">
+          Parking:  <span id="d_parking"></span>
+        </span>
+        <span class="flex rounded-full bg-indigo-500 uppercase px-2 py-1 text-xs font-bold mr-3 my-1">
+          Title:  <span id="d_title"></span>
+        </span>
+        <span class="flex rounded-full bg-indigo-500 uppercase px-2 py-1 text-xs font-bold mr-3 my-1">
+          Town:  <span id="d_town"></span>
+        </span>
+        <span class="flex rounded-full bg-indigo-500 uppercase px-2 py-1 text-xs font-bold mr-3 my-1">
+          State:  <span id="d_state"></span>
+        </span>
+      </div>
+      <div class="p-2 bg-indigo-500 p-1 my-2  items-center text-center text-indigo-100 leading-none lg:rounded-full flex " role="alert">
+        <span class="font-semibold mr-2 flex-auto">
+          <span class="" id="price-val">
+            ...
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+
+    <div class="mt-10 sm:mt-0">
+        <div class="md:grid md:grid-cols-3 md:gap-6">
+          <div class="md:col-span-1">
+            <div class="px-4 sm:px-0">
+              <h3 class="text-lg font-medium leading-6 text-gray-900">House Price Predictor/Estimator</h3>
+              <p class="mt-1 text-sm text-gray-600">
+                An End-to-End Machine Learning Project.
+              </p>
+              <div>
+                <a class="text-sm text-indigo-300 hover:text-indigo-800 p-3" href="https://github.com/Abdulkbk/house-price-predictor">Github</a>
+                <a class="text-sm text-indigo-300 hover:text-indigo-800 p-3" href="https://www.kaggle.com/abdullahiyunus/nigeria-houses-and-prices-dataset">Data Source</a>
+                <a class="text-sm text-indigo-300 hover:text-indigo-800 p-3" href="mailto:abdoollahikbk@gmail.com">Mail</a>
+              </div>
+            </div>
+          </div>
+          <div class="mt-5 md:mt-0 md:col-span-2">
+            <form id="form">
+              <div class="shadow overflow-hidden sm:rounded-md">
+                <div class="px-4 py-5 bg-white sm:p-6">
+                  <div class="grid grid-cols-6 gap-6">
+
+
+                    <div class="col-span-6 sm:col-span-3">
+                      <label for="state" class="block text-sm font-medium text-gray-700">State</label>
+                      <select id="state" name="state" autocomplete="state" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" >
+                        <option value="Abuja">Abuja</option>
+                            <option value="Abia">Abia</option>
+                            <option value="Adamawa">Adamawa</option>
+                            <option value="Akwa Ibom">Akwa Ibom</option>
+                            <option value="Anambara">Anambara</option>
+                            <option value="Bauchi">Bauchi</option>
+                            <option value="Bayelsa">Bayelsa</option>
+                            <option value="Benue">Benue</option>
+                            <option value="Borno">Borno</option>
+                            <option value="Cross River">Cross River</option>
+                            <option value="Delta">Delta</option>
+                            <option value="Ebonyi">Ebonyi</option>
+                            <option value="Edo">Edo</option>
+                            <option value="Ekiti">Ekiti</option>
+                            <option value="Enugu">Enugu</option>
+                            <option value="Gombe">Gombe</option>
+                            <option value="Imo">Imo</option>
+                            <option value="Jigawa">Jigawa</option>
+                            <option value="Kaduna">Kaduna</option>
+                            <option value="Kano">Kano</option>
+                            <option value="Katsina">Katsina</option>
+                            <option value="Kebbi">Kebbi</option>
+                            <option value="Kogi">Kogi</option>
+                            <option value="Kwara">Kwara</option>
+                            <option value="Lagos">Lagos</option>
+                            <option value="Nasarawa">Nasarawa</option>
+                            <option value="Niger">Niger</option>
+                            <option value="Ogun">Ogun</option>
+                            <option value="Osun">Osun</option>
+                            <option value="Ondo">Ondo</option>
+                            <option value="Oyo">Oyo</option>
+                            <option value="Plateau">Plateau</option>
+                            <option value="Rivers">Rivers</option>
+                            <option value="Sokoto">Sokoto</option>
+                            <option value="Taraba">Taraba</option>
+                            <option value="Yobe">Yobe</option>
+                            <option value="Zamfara">Zamfara</option>
+                      </select>
+                    </div>
+      
+                    <div class="col-span-6 sm:col-span-3">
+                      <label for="country" class="block text-sm font-medium text-gray-700">Type</label>
+                      <select id="title" name="title" autocomplete="title" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                        <option value="Detached Duplex">Detached Duplex</option>
+                        <option value="Semi Detached Duplex">Semi Detached Duplex</option>
+                        <option value="Detached Bungalow">Detached Bungalow</option>
+                        <option value="Semi Detached Bungalow">Semi Detached Bungalow</option>
+                        <option value="Terraced Duplexes">Terraced Duplexes</option>
+                        <option value="Terraced Bungalow">Terraced Bungalow</option>
+                        <option value="Block of Flats">Block of Flats</option>
+                      </select>
+                    </div>
+
+                    <div class="col-span-6 sm:col-span-3">
+                      <label for="bedrooms" class="block text-sm font-medium text-gray-700">Number of Bedrooms</label>
+                      <input type="number" name="bedrooms" id="bedrooms" autocomplete="given-name" required class="mt-1 focus:ring-indigo-500 focus:outline-none focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md border sm:py-2 sm:px-3">
+                    </div>
+      
+                    <div class="col-span-6 sm:col-span-3">
+                      <label for="bathrooms" class="block text-sm font-medium text-gray-700">Number of Bathrooms</label>
+                      <input type="number" name="bathrooms" id="bathrooms" autocomplete="family-name" required class="mt-1 focus:ring-indigo-500 focus:outline-none focus:border-indigo-500 block w-full shadow-sm sm:text-sm border border-gray-300 rounded-md sm:py-2 sm:px-3">
+                    </div>
+      
+                    <div class="col-span-6 sm:col-span-6 lg:col-span-2">
+                      <label for="toilets" class="block text-sm font-medium text-gray-700">Toilets</label>
+                      <input type="number" name="toilets" id="toilets" required class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 focus:outline-none block w-full shadow-sm sm:text-sm border-gray-300 rounded-md border md:py-2 md:px-3">
+                    </div>
+      
+                    <div class="col-span-6 sm:col-span-3 lg:col-span-2">
+                      <label for="space" class="block text-sm font-medium text-gray-700">Parking Space</label>
+                      <input type="number" name="space" id="space" required class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 focus:outline-none block w-full shadow-sm sm:text-sm border-gray-300 rounded-md border md:py-2 md:px-3">
+                    </div>
+      
+                    <div class="col-span-6 sm:col-span-3 lg:col-span-2">
+                      <label for="town" class="block text-sm font-medium text-gray-700">Town</label>
+                      <input type="text" name="town" id="town" autocomplete="town" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 focus:outline-none block w-full shadow-sm sm:text-sm border-gray-300 rounded-md border md:py-2 md:px-3">
+                    </div>
+                  </div>
+                </div>
+                <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+                  <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-400 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 w-full">
+                    Predict
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+    </div>
+
+    <script src={{ url_for('static', filename='js/main.js') }}></script>
+</body>
+</html>

@@ -35,7 +35,7 @@ form.addEventListener('submit', e => {
 
         price_tag.innerHTML = `NGN ${price}`
 
-        price_box.className = 'price'
+        price_box.className = 'absolute transform transition-all'
     })
 })
 
