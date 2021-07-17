@@ -5,4 +5,4 @@ a house in Nigeria. People, most especially foreigners could use this and have a
 in Nigeria. This will help them make better choice on weather to buy or rent.
 
 GradientBooster regressor was used to make this estimator/predictor and the model was measured with Root Mean Squared Error with a value of
-(RMSE = 10^9) and still improving.
+(RMSE = 50 \* 10^6) and still improving.
