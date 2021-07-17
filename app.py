@@ -1,29 +1,10 @@
 from flask import Flask, render_template, request
-from sklearn.base import BaseEstimator, TransformerMixin
 import json
 import joblib
 import pandas as pd
 import numpy as np
 
 app = Flask(__name__)
-
-
-class AddAtrributes(BaseEstimator, TransformerMixin):
-    def __init__(self, do=True):
-        self.do = do
-
-    def fit(self, X, y=None):
-        return self
-
-    def transform(self, X, y=None):
-        bathrooms_per_bedrooms = X[:, 1] / X[:, 0]
-        bedrooms_per_bathrooms = X[:, 0] / X[:, 1]
-        bedrooms_bathrooms = X[:, 0] * X[:, 1]
-        bathrooms_toilets = X[:, 1] * X[:, 2]
-        if self.do:
-            return np.c_[X, bathrooms_per_bedrooms, bedrooms_per_bathrooms, bedrooms_bathrooms, bathrooms_toilets]
-        else:
-            return X
 
 
 model = joblib.load('./model/regressor.joblib')
@@ -51,6 +32,8 @@ def predict_price():
     dt = [bedrooms, bathrooms, toilets, parking, title, town, state]
 
     dataframe = pd.DataFrame([dt], columns=cols)
+    dataframe['lagOrAbj'] = np.where(
+        (dataframe['state'] == "Abuja") | (dataframe['state'] == "Lagos"), 1, 0)
     result = model.predict(dataframe)[0]
     return {'price': result}
 

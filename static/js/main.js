@@ -30,10 +30,10 @@ form.addEventListener('submit', e => {
     handleDisplay()
 
     sendReq('/predict').then(data => {
-        const abs_price = Math.abs(data.price) / 10
+        const abs_price = Math.abs(data.price)
         let price = Intl.NumberFormat('en-US').format(abs_price)
 
-        price_tag.innerHTML = `NGN ${price}`
+        price_tag.innerHTML = `Estimated Price: NGN ${price}`
 
         price_box.className = 'absolute transform transition-all'
     })
